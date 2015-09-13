@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lifecycleMappingMetadata>
+  <pluginExecutions>
+    <pluginExecution>
+      <pluginExecutionFilter>
+        <goals>
+          <goal>define-woapplication-resources</goal>
+          <goal>define-woframework-resources</goal>
+          <goal>package-woapplication</goal>
+          <goal>package-woframework</goal>
+          <goal>woapplication</goal>
+          <goal>woframework</goal>
+        </goals>
+      </pluginExecutionFilter>
+      <action>
+        <ignore/>
+      </action>
+    </pluginExecution>
+  </pluginExecutions>
+</lifecycleMappingMetadata>
