@@ -2,7 +2,7 @@
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-wolifecycle-plugin</artifactId>
+				<artifactId>wolifecycle-maven-plugin</artifactId>
 				<configuration>
 					<project implementation="org.apache.maven.plugin.testing.stubs.MavenProjectStub">
 						<groupId implementation="java.lang.String">foo</groupId>
