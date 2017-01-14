@@ -1,25 +1,44 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<artifactId>maven2</artifactId>
-		<groupId>org.objectstyle.woproject.maven2</groupId>
-		<version>2.1</version>
-	</parent>
+	<groupId>org.objectstyle.woproject.maven2</groupId>
 	<artifactId>maven-wolifecycle-plugin</artifactId>
 	<version>2.3-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 	<name>Maven WOLifecycle Plugin</name>
+
+	<organization>
+		<name>WOCommunity</name>
+		<url>http://www.wocommunity.org/</url>
+	</organization>
+
+	<distributionManagement>
+		<repository>
+			<id>wocommunity.deployment</id>
+			<name>WOCommunity Maven2 Releases Repository</name>
+			<url>http://maven.wocommunity.org/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>wocommunity.deployment</id>
+			<name>WOCommunity Maven2 Snapshots Repository</name>
+			<url>http://maven.wocommunity.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.objectstyle.woproject.ant</groupId>
 			<artifactId>woenvironment</artifactId>
+			<version>2.0.15.1</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.objectstyle.woproject.ant</groupId>
 			<artifactId>woproject-ant-tasks</artifactId>
+			<version>2.0.15</version>
 			<scope>runtime</scope>
-			<!-- There is a conflict with the new groupId org.apache.ant (should be fixed in the woproject-ant-tasks pom.xml) -->
+			<!-- There is a conflict with the new groupId org.apache.ant (should be
+				fixed in the woproject-ant-tasks pom.xml) -->
 			<exclusions>
 				<exclusion>
 					<groupId>ant</groupId>
@@ -30,26 +49,32 @@
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-plugin-api</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-artifact</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-project</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-model</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-script-ant</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-artifact-ant</artifactId>
+			<version>2.0.4</version>
 			<!-- There is a conflict with the new groupId org.apache.ant -->
 			<exclusions>
 				<exclusion>
@@ -61,29 +86,35 @@
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.shared</groupId>
 			<artifactId>maven-plugin-testing-harness</artifactId>
+			<version>1.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit-dep</artifactId>
+			<version>4.5</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
+			<version>1.8.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-all</artifactId>
+			<version>1.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -111,6 +142,14 @@
 				</dependencies>
 				<configuration>
 					<goalPrefix>wolifecycle</goalPrefix>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
 				</configuration>
 			</plugin>
 		</plugins>
