@@ -48,6 +48,7 @@ import org.apache.maven.project.MavenProject;
  * 
  * @goal define-woapplication-resources
  * @requiresDependencyResolution compile
+ * @threadSafe
  * @author uli
  * @author hprange
  * @since 2.0

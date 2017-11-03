@@ -29,6 +29,7 @@ import org.apache.maven.project.MavenProject;
  * @phase package
  * @requiresProject
  * @requiresDependencyResolution compile
+ * @threadSafe
  * @author uli
  * @author hprange
  * @since 2.0
