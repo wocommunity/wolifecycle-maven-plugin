@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.wocommunity</groupId>
 	<artifactId>wolifecycle-maven-plugin</artifactId>
-	<version>2.3-SNAPSHOT</version>
+	<version>2.3</version>
 	<packaging>maven-plugin</packaging>
 	<name>Maven WOLifecycle Plugin</name>
 	<inceptionYear>2001</inceptionYear>
@@ -214,5 +213,6 @@
 		<connection>scm:git:git@github.com:wocommunity/wolifecycle-maven-plugin.git</connection>
 		<url>scm:git:git@github.com:wocommunity/wolifecycle-maven-plugin.git</url>
 		<developerConnection>scm:git:git@github.com:wocommunity/wolifecycle-maven-plugin.git</developerConnection>
-	</scm>
+	  <tag>wolifecycle-maven-plugin-2.3</tag>
+  </scm>
 </project>
