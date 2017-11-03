@@ -1,4 +1,4 @@
-package org.objectstyle.woproject.maven2.wolifecycle;
+package org.wocommunity.maven.wolifecycle;
 
 //org.apache.maven.plugins:maven-compiler-plugin:compile
 import org.apache.maven.plugin.MojoExecutionException;

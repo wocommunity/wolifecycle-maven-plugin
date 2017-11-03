@@ -54,7 +54,7 @@
  *
  */
 
-package org.objectstyle.woproject.maven2.wolifecycle;
+package org.wocommunity.maven.wolifecycle;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package org.objectstyle.woproject.maven2.wolifecycle;
+package org.wocommunity.maven.wolifecycle;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -8,6 +8,7 @@ import java.io.File;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 import org.junit.Before;
 import org.junit.Test;
+import org.wocommunity.maven.wolifecycle.AbstractPackageMojo;
 
 public class TestAbstractPackageMojo extends AbstractMojoTestCase {
 

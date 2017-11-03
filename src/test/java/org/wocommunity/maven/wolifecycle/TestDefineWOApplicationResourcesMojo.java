@@ -53,35 +53,69 @@
  * <http://objectstyle.org/>.
  *
  */
-package org.objectstyle.woproject.maven2.wolifecycle;
+package org.wocommunity.maven.wolifecycle;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertThat;
+import static org.junit.matchers.JUnitMatchers.containsString;
 
-public class TestWOMojo extends TestCase {
+import java.io.File;
 
-    protected AbstractWOMojo mojo;
+import org.apache.maven.plugin.testing.AbstractMojoTestCase;
+import org.junit.Before;
+import org.junit.Test;
+import org.wocommunity.maven.wolifecycle.DefineWOApplicationResourcesMojo;
+
+public class TestDefineWOApplicationResourcesMojo extends AbstractMojoTestCase {
+    private static final File TEST_POM = new File(getBasedir(),
+	    "src/test/resources/unit/wolifecycle-basic-test/pom.xml");
+
+    DefineWOApplicationResourcesMojo mojo;
 
     @Override
+    @Before
     protected void setUp() throws Exception {
 	super.setUp();
 
-	mojo = new MockWOMojo();
+	mojo = (DefineWOApplicationResourcesMojo) lookupMojo(
+		"define-woapplication-resources", TEST_POM);
     }
 
-    public void testIsNotWebObjectsGroup() throws Exception {
-	String group = "another.group";
+    @Test
+    public void testDefaultFrameworksFolder() throws Exception {
+	mojo.setClassifier(null);
 
-	assertFalse(mojo.isWebObjectAppleGroup(group));
+	File folder = mojo.getFrameworksFolder();
+
+	assertThat(folder.getAbsolutePath(),
+		containsString("foo-1.0-SNAPSHOT.woa/Contents/Frameworks"));
     }
 
-    public void testIsNullGroup() throws Exception {
-	assertFalse(mojo.isWebObjectAppleGroup(null));
+    @Test
+    public void testFrameworksFolderWithClassifier() throws Exception {
+	File folder = mojo.getFrameworksFolder();
+
+	assertThat(
+		folder.getAbsolutePath(),
+		containsString("foo-1.0-SNAPSHOT-someClassifier.woa/Contents/Frameworks"));
     }
 
-    public void testWebObjectsGroupIsOsIndependent() throws Exception {
-	String group = "com.webobjects";
+    @Test
+    public void testFrameworksFolderWithFinalName() throws Exception {
+	mojo.setFinalName("foo-bar-name");
+	mojo.setClassifier(null);
 
-	assertTrue(mojo.isWebObjectAppleGroup(group));
+	File folder = mojo.getFrameworksFolder();
+
+	assertThat(folder.getAbsolutePath(),
+		containsString("foo-bar-name.woa/Contents/Frameworks"));
     }
 
+    @Test
+    public void testNormalizedFilePath() throws Exception {
+	String path = "C:\\Documents and Settings\\User\\.m2\\repository";
+
+	String result = DefineWOApplicationResourcesMojo.normalizedPath(path);
+
+	assertEquals("C:/Documents and Settings/User/.m2/repository", result);
+    }
 }

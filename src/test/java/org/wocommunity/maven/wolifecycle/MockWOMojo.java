@@ -53,11 +53,12 @@
  * <http://objectstyle.org/>.
  *
  */
-package org.objectstyle.woproject.maven2.wolifecycle;
+package org.wocommunity.maven.wolifecycle;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
+import org.wocommunity.maven.wolifecycle.AbstractWOMojo;
 
 /**
  * Only to test methods on abstract class

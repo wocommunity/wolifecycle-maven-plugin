@@ -1,4 +1,4 @@
-package org.objectstyle.woproject.maven2.wolifecycle;
+package org.wocommunity.maven.wolifecycle;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
@@ -14,6 +14,7 @@ import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+import org.wocommunity.maven.wolifecycle.AbstractDefineResourcesMojo;
 
 public class TestAbstractDefineResourcesMojo extends AbstractMojoTestCase {
     private static final File TEST_POM = new File(getBasedir(),
