@@ -6,6 +6,7 @@
 	<version>2.3-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 	<name>Maven WOLifecycle Plugin</name>
+	<inceptionYear>2001</inceptionYear>
 
 	<organization>
 		<name>WOCommunity</name>
@@ -24,6 +25,15 @@
 			<url>http://maven.wocommunity.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
+
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -157,6 +167,37 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.9.0</version>
+				<configuration>
+					<header>src/etc/header.txt</header>
+					<strictCheck>true</strictCheck>
+					<excludes>
+						<exclude>LICENSE.txt</exclude>
+						<exclude>README.md</exclude>
+						<exclude>.gitignore</exclude>
+						<exclude>.maven_settings.xml</exclude>
+						<exclude>.travis.yml</exclude>
+						<exclude>src/main/resources/**</exclude>
+						<exclude>src/main/scripts/**</exclude>
+						<exclude>src/test/resources/**</exclude>
+					</excludes>
+					<properties>
+						<year>${project.inceptionYear}</year>
+						<owner>WOCommunity</owner>
+						<email>contact@wocommunity.org</email>
+					</properties>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
