@@ -29,6 +29,7 @@ import org.apache.maven.project.MavenProject;
  * @phase package
  * @requiresProject
  * @requiresDependencyResolution compile
+ * @threadSafe
  * @author uli
  * @author <a href="mailto:hprange@gmail.com">Henrique Prange</a>
  * @since 2.0

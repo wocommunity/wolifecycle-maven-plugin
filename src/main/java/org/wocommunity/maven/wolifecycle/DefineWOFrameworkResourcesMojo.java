@@ -24,6 +24,7 @@ import org.apache.maven.project.MavenProject;
  * resources goal for WebObjects projects.
  * 
  * @goal define-woframework-resources
+ * @threadSafe
  * @author uli
  * @since 2.0
  */
