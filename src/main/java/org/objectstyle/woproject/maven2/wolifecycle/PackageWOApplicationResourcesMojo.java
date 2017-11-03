@@ -22,8 +22,8 @@ public class PackageWOApplicationResourcesMojo extends AbstractPackageMojo {
 
     /**
      * The maven project.
-     * 
-     * @parameter expression="${project}"
+     *
+     * @parameter property="project"
      * @required
      * @readonly
      */

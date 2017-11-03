@@ -44,8 +44,8 @@ public abstract class AbstractDefineResourcesMojo extends AbstractWOMojo {
     /**
      * Flatten all Resources and WebServerResouces into the Resources folder of
      * WO application/framework package.
-     * 
-     * @parameter expression="flattenResources"
+     *
+     * @parameter property="flattenResources"
      */
     private Boolean flattenResources;
 

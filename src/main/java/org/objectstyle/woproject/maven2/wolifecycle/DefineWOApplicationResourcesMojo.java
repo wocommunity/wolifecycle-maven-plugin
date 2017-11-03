@@ -53,13 +53,13 @@ public class DefineWOApplicationResourcesMojo extends
 
     /**
      * include JavaClientClasses in WebServerResources.
-     * 
-     * @parameter expression="includeJavaClientClassesInWebServerResources"
+     *
+     * @parameter property="includeJavaClientClassesInWebServerResources"
      */
     private Boolean includeJavaClientClassesInWebServerResources;
 
     /**
-     * @parameter expression="${localRepository}"
+     * @parameter property="localRepository"
      * @required
      * @readonly
      */
@@ -67,8 +67,8 @@ public class DefineWOApplicationResourcesMojo extends
 
     /**
      * The maven project.
-     * 
-     * @parameter expression="${project}"
+     *
+     * @parameter property="project"
      * @required
      * @readonly
      */
@@ -76,15 +76,15 @@ public class DefineWOApplicationResourcesMojo extends
 
     /**
      * Read patternsets.
-     * 
-     * @parameter expression="readPatternsets"
+     *
+     * @parameter property="readPatternsets"
      */
     private Boolean readPatternsets;
 
     /**
      * skip webobjects frameworks from apple.
-     * 
-     * @parameter expression="skipAppleProvidedFrameworks"
+     *
+     * @parameter property="skipAppleProvidedFrameworks"
      */
     private Boolean skipAppleProvidedFrameworks;
 

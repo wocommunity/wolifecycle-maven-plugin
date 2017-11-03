@@ -16,8 +16,8 @@ public class DefineWOFrameworkResourcesMojo extends AbstractDefineResourcesMojo 
 
     /**
      * The maven project.
-     * 
-     * @parameter expression="${project}"
+     *
+     * @parameter property="project"
      * @required
      * @readonly
      */
@@ -25,8 +25,8 @@ public class DefineWOFrameworkResourcesMojo extends AbstractDefineResourcesMojo 
 
     /**
      * Read patternsets.
-     * 
-     * @parameter expression="readPatternsets"
+     *
+     * @parameter property="readPatternsets"
      */
     private Boolean readPatternsets;
 

@@ -69,7 +69,7 @@ public abstract class AbstractWOMojo extends AbstractMojo {
     public final static String MAVEN_WEBOBJECTS_GROUP_ID = "com.webobjects";
 
     /**
-     * @parameter expression="${project.build.directory}"
+     * @parameter property="project.build.directory"
      * @required
      * @readonly
      */
@@ -94,14 +94,14 @@ public abstract class AbstractWOMojo extends AbstractMojo {
 
     /**
      * The name of the generated package (framework or application).
-     * 
-     * @parameter expression="${project.build.finalName}"
+     *
+     * @parameter property="project.build.finalName"
      * @required
      */
     private String finalName;
 
     /**
-     * @parameter expression="${localRepository}"
+     * @parameter property="localRepository"
      * @required
      * @readonly
      */
@@ -109,8 +109,8 @@ public abstract class AbstractWOMojo extends AbstractMojo {
 
     /**
      * The maven project.
-     * 
-     * @parameter expression="${project}"
+     *
+     * @parameter property="project"
      * @required
      * @readonly
      */
