@@ -32,6 +32,7 @@ public abstract class AbstractPackageMojo extends AbstractWOMojo {
 	super();
     }
 
+    @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
 	getLog().info("Packaging WebObjects project");
 

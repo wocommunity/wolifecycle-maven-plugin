@@ -136,11 +136,9 @@ public class DefineWOApplicationResourcesMojo extends
 	}
 	file.createNewFile();
 
-	InputStream is = null;
-	OutputStream os = null;
-	try {
-	    is = new JarFile(jarFileName).getInputStream(jarEntry);
-	    os = new FileOutputStream(file);
+	try (JarFile jarf = new JarFile(jarFileName);
+             InputStream is = jarf.getInputStream(jarEntry);
+             OutputStream os = new FileOutputStream(file)) {
 
 	    byte[] buf = new byte[1024];
 	    int len;
@@ -148,14 +146,6 @@ public class DefineWOApplicationResourcesMojo extends
 		os.write(buf, 0, len);
 	    }
 
-	} finally {
-	    if (is != null) {
-		is.close();
-	    }
-
-	    if (os != null) {
-		os.close();
-	    }
 	}
     }
 
@@ -270,11 +260,8 @@ public class DefineWOApplicationResourcesMojo extends
 		continue;
 	    }
 
-	    try {
-		FileInputStream fileInputStream = new FileInputStream(jarFile);
-
-		JarInputStream jarInputStream = new JarInputStream(
-			fileInputStream);
+	    try (FileInputStream fileInputStream = new FileInputStream(jarFile);
+                 JarInputStream jarInputStream = new JarInputStream(fileInputStream)) {
 
 		int counter = 0;
 
@@ -301,11 +288,8 @@ public class DefineWOApplicationResourcesMojo extends
 			}
 		    }
 		}
-		getLog()
-			.debug(
-				counter
-					+ " WebServerResources was extracted and copied from Jar named "
-					+ jarFile.getName());
+		getLog().debug(counter + " WebServerResources was extracted and copied from Jar named "
+				       + jarFile.getName());
 	    } catch (FileNotFoundException e) {
 		throw new MojoExecutionException("Could not open file ('"
 			+ jarFile.getName() + "') input stream", e);
@@ -342,7 +326,7 @@ public class DefineWOApplicationResourcesMojo extends
 	return true;
     }
 
-    private boolean isArtifactDeployed(final File file) {
+    private static boolean isArtifactDeployed(final File file) {
 	return file.isFile();
     }
 

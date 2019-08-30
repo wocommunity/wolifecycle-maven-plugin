@@ -33,10 +33,8 @@ public class PatternsetReader {
 
 	List<String> patternList = new ArrayList<String>();
 
-	BufferedReader patternReader = null;
-
-	try {
-	    patternReader = new BufferedReader(new FileReader(patternset));
+	try (FileReader fr = new FileReader(patternset);
+             BufferedReader patternReader = new BufferedReader(fr)) {
 
 	    String line = patternReader.readLine();
 
@@ -46,14 +44,6 @@ public class PatternsetReader {
 		}
 
 		line = patternReader.readLine();
-	    }
-	} finally {
-	    if (null != patternReader) {
-		try {
-		    patternReader.close();
-		} catch (IOException ioe) {
-		    // Ignore exception
-		}
 	    }
 	}
 

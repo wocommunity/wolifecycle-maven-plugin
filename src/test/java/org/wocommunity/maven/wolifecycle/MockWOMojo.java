@@ -18,7 +18,6 @@ package org.wocommunity.maven.wolifecycle;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.wocommunity.maven.wolifecycle.AbstractWOMojo;
 
 /**
  * Only to test methods on abstract class
@@ -27,6 +26,7 @@ import org.wocommunity.maven.wolifecycle.AbstractWOMojo;
  */
 public class MockWOMojo extends AbstractWOMojo {
 
+    @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
 	// Do nothing
     }
