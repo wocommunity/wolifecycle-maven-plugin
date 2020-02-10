@@ -39,8 +39,9 @@ Or to build a WO application package:
 
 This plugin comes with some options that you can change in the `configuration` section of the plugin.
 
-- **flattenResources**: Flatten all Resources and WebServerResouces into the Resources folder of the application/framework package.
-- **readPatternsets**: Include Resources and WebResources files according to an existing patternset files.
+- **flattenResources**: Flatten all Resources and WebServerResouces into the Resources folder of the application/framework package. All nested folders other than wo and eomodeld are dissolved.
+- **flattenComponents**: Flatten only the WOComponents and EOModels from Resources or Components folders. All other files and directories keep their original nesting structure. 
+- **readPatternsets**: Include Resources and WebResources files according to an existing patternset files in the woproject folder. The files here get added *in addition* to anything in the Resources and Component folders processed by default. Also those files and folders will not get flattened.
 - **skipAppleProvidedFrameworks**: Do not include Apple WebObjects libraries when building application packages.
 - **includeJavaClientClassesInWebServerResources**: Include  JavaClientClasses in the WebServerResources package.
 

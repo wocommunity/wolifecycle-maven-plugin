@@ -29,7 +29,6 @@ import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.wocommunity.maven.wolifecycle.AbstractDefineResourcesMojo;
 
 public class TestAbstractDefineResourcesMojo extends AbstractMojoTestCase {
     private static final File TEST_POM = new File(getBasedir(),
@@ -93,7 +92,7 @@ public class TestAbstractDefineResourcesMojo extends AbstractMojoTestCase {
 
 	File file = Mockito.spy(new File(".svn"));
 
-	Mockito.stub(file.isHidden()).toReturn(true);
+	Mockito.when(file.isHidden()).thenReturn(true);
 
 	assertThat(mojo.includeResourcesRecursively(file), is(false));
     }
@@ -130,7 +129,7 @@ public class TestAbstractDefineResourcesMojo extends AbstractMojoTestCase {
     public void testFullTargetDirectoryNotIncludingVersion() throws Exception {
 	mojo = Mockito.spy(mojo);
 
-	Mockito.stub(mojo.includesVersionInArtifactName()).toReturn(false);
+	Mockito.when(mojo.includesVersionInArtifactName()).thenReturn(false);
 
 	String path = mojo.getFullTargetPath("folder");
 
