@@ -47,10 +47,11 @@ import org.apache.maven.project.MavenProject;
  * resources goal for WebObjects projects.
  * 
  * @goal define-woapplication-resources
- * @requiresDependencyResolution compile
+ * @requiresDependencyResolution compile+runtime
  * @threadSafe
  * @author uli
  * @author hprange
+ * @author paulh
  * @since 2.0
  */
 public class DefineWOApplicationResourcesMojo extends
