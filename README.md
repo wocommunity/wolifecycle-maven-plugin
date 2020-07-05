@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wocommunity/wolifecycle-maven-plugin.svg?branch=master)](https://travis-ci.org/wocommunity/wolifecycle-maven-plugin)
+![Master Build](https://github.com/wocommunity/wolifecycle-maven-plugin/workflows/wolifecycle-maven-plugin%20Master%20Build/badge.svg)
 
 # WOLifecycle Maven Plugin
 
