@@ -8,7 +8,7 @@ The wolifecycle-maven-plugin is a Maven plugin to assist in the development and 
 
 ## Usage
 
-You must add the wolifecycle-maven-plugin to the pom.xml in the `build` section according to the following snippet:
+You must add the wolifecycle-maven-plugin to the `pom.xml` in the `build` section according to the following snippet:
 
 ```
 <build>
