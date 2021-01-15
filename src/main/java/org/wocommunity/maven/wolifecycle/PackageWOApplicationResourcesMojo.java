@@ -18,6 +18,10 @@ package org.wocommunity.maven.wolifecycle;
 //org.apache.maven.plugins:maven-compiler-plugin:compile
 import java.io.File;
 
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.artifact.DefaultArtifact;
+import org.apache.maven.artifact.handler.DefaultArtifactHandler;
+import org.apache.maven.artifact.versioning.VersionRange;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
@@ -55,17 +59,24 @@ public class PackageWOApplicationResourcesMojo extends AbstractPackageMojo {
 
 	File woapplicationFile = getWOApplicationFile();
 
-	getLog().info(
-		"Attaching artifact: " + woapplicationFile.getAbsolutePath());
+	getLog().info("Setting primary artifact: "
+		+ woapplicationFile.getAbsolutePath());
 
-	getProjectHelper().attachArtifact(project, "woapplication.tar.gz",
-		getClassifier(), woapplicationFile);
+	DefaultArtifactHandler artifactHandler = new DefaultArtifactHandler(
+		"woapplication.tar.gz");
+	DefaultArtifact artifact = new DefaultArtifact(project.getGroupId(),
+		project.getArtifactId(),
+		VersionRange.createFromVersion(project.getVersion()),
+		Artifact.SCOPE_RUNTIME, "woapplication.tar.gz", getClassifier(),
+		artifactHandler);
+
+	artifact.setFile(woapplicationFile);
+	project.setArtifact(artifact);
 
 	File webServerResourcesArtifactFile = getWOWebServerResourcesArtifactFile();
 
-	getLog().info(
-		"Attaching artifact: "
-			+ webServerResourcesArtifactFile.getAbsolutePath());
+	getLog().info("Attaching artifact: "
+		+ webServerResourcesArtifactFile.getAbsolutePath());
 
 	getProjectHelper().attachArtifact(project,
 		"wowebserverresources.tar.gz", getClassifier(),
@@ -83,12 +94,12 @@ public class PackageWOApplicationResourcesMojo extends AbstractPackageMojo {
     }
 
     protected File getWOApplicationFile() {
-	return new File(getBuildDirectory(), getFinalName()
-		+ ".woapplication.tar.gz");
+	return new File(getBuildDirectory(),
+		getFinalName() + ".woapplication.tar.gz");
     }
 
     private File getWOWebServerResourcesArtifactFile() {
-	return new File(getBuildDirectory(), getFinalName()
-		+ ".wowebserverresources.tar.gz");
+	return new File(getBuildDirectory(),
+		getFinalName() + ".wowebserverresources.tar.gz");
     }
 }
