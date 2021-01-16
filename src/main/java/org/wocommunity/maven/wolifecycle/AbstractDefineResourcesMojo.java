@@ -163,15 +163,17 @@ public abstract class AbstractDefineResourcesMojo extends AbstractWOMojo {
             resource.addInclude("*.wo/**");
             resource.addInclude("*.api");
             resource.addInclude("*.eomodeld/**");
+            resource.addInclude("*.eogen");
 
             // add all other things at the resource root directory also
             if (isResourceRoot) {
                 resource.addInclude("*");
                 resource.addInclude("*/");
                 // but exclude wo, api and models in all subdirectories
-                resource.addExclude("*/**/*.wo/**");
+                resource.addExclude("*/**/*.wo/*");
                 resource.addExclude("*/**/*.api");
-                resource.addInclude("*/**/*.eomodeld/**");
+                resource.addExclude("*/**/*.eomodeld/*");
+                resource.addExclude("*/**/*.eogen");
             }
         }
 
