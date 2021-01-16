@@ -16,12 +16,12 @@
 		<repository>
 			<id>wocommunity.deployment</id>
 			<name>WOCommunity Maven2 Releases Repository</name>
-			<url>http://maven.wocommunity.org/content/repositories/releases</url>
+			<url>https://maven.wocommunity.org/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>wocommunity.deployment</id>
 			<name>WOCommunity Maven2 Snapshots Repository</name>
-			<url>http://maven.wocommunity.org/content/repositories/snapshots/</url>
+			<url>https://maven.wocommunity.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
