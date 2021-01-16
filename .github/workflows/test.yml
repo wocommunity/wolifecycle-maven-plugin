@@ -1,4 +1,4 @@
-name: wolifecycle-maven-plugin Pull Request Test
+name: Pull Request Test
 on: pull_request
 
 jobs:

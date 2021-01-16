@@ -1,4 +1,4 @@
-name: wolifecycle-maven-plugin Master Build
+name: Master Build
 on:
   push:
     branches:
