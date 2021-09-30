@@ -4,7 +4,7 @@
 
 The wolifecycle-maven-plugin is a Maven plugin to assist in the development and packaging of WebObjects applications and frameworks.
 
-**Version**: 2.3
+**Version**: 2.4
 
 ## Usage
 
@@ -16,7 +16,7 @@ You must add the wolifecycle-maven-plugin to the `pom.xml` in the `build` sectio
     <plugin>
       <groupId>org.wocommunity</groupId>
       <artifactId>wolifecycle-maven-plugin</artifactId>
-      <version>2.3</version>
+      <version>2.4</version>
       <extensions>true</extensions>
     </plugin>
   </plugins>
