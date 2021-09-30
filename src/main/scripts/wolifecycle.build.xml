@@ -22,6 +22,7 @@
 	<!-- ================================================================== -->
 	<target name="woapplicationproperties" depends="test-pom">
 		<property file="build.properties" />
+		<property name="jvm" value="java"/>
 		<property file="target/wobuild.properties" />
 
 		<property file="target/classpath.properties" />
