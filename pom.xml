@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.wocommunity</groupId>
 	<artifactId>wolifecycle-maven-plugin</artifactId>
-	<version>2.5-SNAPSHOT</version>
+	<version>2.5</version>
 	<packaging>maven-plugin</packaging>
 	<name>Maven WOLifecycle Plugin</name>
 	<inceptionYear>2001</inceptionYear>
@@ -215,6 +215,6 @@
 		<connection>scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</connection>
 		<url>scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</url>
 		<developerConnection>scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</developerConnection>
-	  <tag>HEAD</tag>
+	  <tag>wolifecycle-maven-plugin-2.5</tag>
   </scm>
 </project>
