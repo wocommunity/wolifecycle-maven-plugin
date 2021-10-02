@@ -8,10 +8,22 @@
       </activation>
       <repositories>
         <repository>
-          <id>wocommunity</id>
-          <url>https://maven.wocommunity.org/content/groups/public/</url>
+          <id>wocommunity.releases</id>
+          <name>WOCommunity Releases Repository</name>
+          <url>https://maven.wocommunity.org/content/groups/public</url>
           <releases>
             <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>wocommunity.snapshots</id>
+          <name>WOCommunity Snapshots Repository</name>
+          <url>https://maven.wocommunity.org/content/groups/public-snapshots</url>
+          <releases>
+            <enabled>false</enabled>
           </releases>
           <snapshots>
             <enabled>true</enabled>
@@ -20,10 +32,22 @@
       </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>wocommunity-plugins</id>
-          <url>https://maven.wocommunity.org/content/groups/public/</url>
+          <id>wocommunity.releases</id>
+          <name>WOCommunity Releases Repository</name>
+          <url>https://maven.wocommunity.org/content/groups/public</url>
           <releases>
             <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>wocommunity.snapshots</id>
+          <name>WOCommunity Snapshots Repository</name>
+          <url>https://maven.wocommunity.org/content/groups/public-snapshots</url>
+          <releases>
+            <enabled>false</enabled>
           </releases>
           <snapshots>
             <enabled>true</enabled>
@@ -40,6 +64,11 @@
     <id>wocommunity.deployment</id>
     <username>${env.CI_DEPLOY_USERNAME}</username>
     <password>${env.CI_DEPLOY_PASSWORD}</password>
+  </server>
+  <server>
+    <id>github</id>
+    <username>${env.GITHUB_ACTOR}</username>
+    <password>${env.GITHUB_TOKEN}</password>
   </server>
 </servers>
 </settings>
