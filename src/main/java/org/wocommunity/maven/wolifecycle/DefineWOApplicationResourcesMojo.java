@@ -350,6 +350,11 @@ public class DefineWOApplicationResourcesMojo extends
 		Artifact.SCOPE_PROVIDED);
 
 	for (Artifact artifact : artifacts) {
+	    if ("pom".equals(artifact.getType())) {
+		// skip "pom" artifacts as they are no jars of their own
+		continue;
+	    }
+
 	    if (populateWebObjectsLibraries) {
 		if (!isWebObjectAppleGroup(artifact.getGroupId())) {
 		    continue;
