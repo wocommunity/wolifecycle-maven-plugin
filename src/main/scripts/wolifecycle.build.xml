@@ -45,7 +45,7 @@
 		  </delete> -->
 
 
-		<woapplication name="${finalName}" frameworksBaseURL="/WebObjects/${finalName}.woa/Contents/Frameworks" startupScriptName="${artifactId}" stdFrameworks="false" destDir="target" customInfoPListContent="${customInfoPListContent}" principalClass="${principalClass}" cfBundleVersion="${version}" cfBundleShortVersion="${version}" jvm="${jvm}" jvmOptions="${jvmOptions}" jdb="${jdb}" jdbOptions="${jdbOptions}">
+		<woapplication name="${finalName}" frameworksBaseURL="/WebObjects/${finalName}.woa/Contents/Frameworks" startupScriptName="${artifactId}" destDir="target" customInfoPListContent="${customInfoPListContent}" principalClass="${principalClass}" cfBundleVersion="${version}" cfBundleShortVersion="${version}" jvm="${jvm}" jvmOptions="${jvmOptions}" jdb="${jdb}" jdbOptions="${jdbOptions}">
 			<classes dir="target/classes">
 			</classes>
 			<lib dir="${dependencies.lib}">
