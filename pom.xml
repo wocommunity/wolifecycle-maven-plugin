@@ -1,16 +1,36 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.wocommunity</groupId>
+	<groupId>io.github.wocommunity</groupId>
 	<artifactId>wolifecycle-maven-plugin</artifactId>
 	<version>2.6-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 	<name>Maven WOLifecycle Plugin</name>
+	<description>This plugin builds WebObjects applications and frameworks.</description>
+	<url>https://wocommunity.org</url>
+
 	<inceptionYear>2001</inceptionYear>
 
 	<organization>
 		<name>WOCommunity</name>
 		<url>http://www.wocommunity.org/</url>
 	</organization>
+
+	<developers>
+		<developer>
+			<name>Henrique Prange</name>
+			<email>hprange@gmail.com</email>
+			<organization>WOCommunity</organization>
+			<organizationUrl>https://github.com/wocommunity/</organizationUrl>
+		</developer>
+		<developer>
+			<name>Ramsey Gurley</name>
+			<email>ramseygurley@gmail.com</email>
+			<organization>WOCommunity</organization>
+			<organizationUrl>https://github.com/wocommunity/</organizationUrl>
+		</developer>
+	</developers>
 
 	<distributionManagement>
 		<repository>
@@ -43,24 +63,16 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.objectstyle.woproject.ant</groupId>
+			<groupId>io.github.wocommunity</groupId>
 			<artifactId>woenvironment</artifactId>
-			<version>2.0.15.1</version>
+			<version>5.0.0</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.objectstyle.woproject.ant</groupId>
+			<groupId>io.github.wocommunity</groupId>
 			<artifactId>woproject-ant-tasks</artifactId>
-			<version>2.0.15</version>
+			<version>5.0.0</version>
 			<scope>runtime</scope>
-			<!-- There is a conflict with the new groupId org.apache.ant (should be
-				fixed in the woproject-ant-tasks pom.xml) -->
-			<exclusions>
-				<exclusion>
-					<groupId>ant</groupId>
-					<artifactId>ant</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -148,6 +160,7 @@
 	<build>
 		<plugins>
 			<plugin>
+				<?m2e ignore?>
 				<artifactId>maven-plugin-plugin</artifactId>
 				<version>3.2</version>
 				<dependencies>
@@ -173,8 +186,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -212,9 +225,83 @@
 	</build>
 
 	<scm>
-		<connection>scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</connection>
+		<connection>
+			scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</connection>
 		<url>scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</url>
-		<developerConnection>scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<developerConnection>
+			scm:git:https://github.com/wocommunity/wolifecycle-maven-plugin.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+						<version>0.4.0</version>
+						<extensions>true</extensions>
+						<configuration>
+							<publishingServerId>central</publishingServerId>
+							<tokenAuth>true</tokenAuth>
+							<autoPublish>true</autoPublish>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>3.3.0</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>3.6.3</version>
+						<executions>
+							<execution>
+								<id>attach-javadoc</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<stylesheet>java</stylesheet>
+							<doclint>none</doclint>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>3.1.0</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<gpgArguments>
+								<arg>--pinentry-mode</arg>
+								<arg>loopback</arg>
+							</gpgArguments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
